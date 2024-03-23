@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimony Form</title>
+</head>
+
+<body>
+    <h1>Testimony Form working on whit supabase</h1>
+    <form id="testimonyForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="testimony">Testimony:</label>
+            <textarea id="testimony" name="testimony" rows="4" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+    </form>
+    <div id="testimonyList"></div>
+
+    <!-- Skrip dari Supabase -->
+    <script type="module">
+        // ini CDN penting fromat harus seperti ini agar bekerja
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+        // sesuai urutan ('supabaseUrl', 'supabaseKey') yang di dapatkan dari supabase account
+        const supabase = createClient('supabaseUrl', 'supabaseKey')
+
+        console.log('Supabase Instance: ', supabase)
+        // Menambahkan event listener untuk form submit
+        document.getElementById('testimonyForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const testimony = document.getElementById('testimony').value;
+
+            // Menyimpan data ke dalam tabel 'testimonies'
+            const { data, error } = await supabase
+                .from('testimonies')
+                .insert([{ name, testimony }]);
+
+            if (error) {
+                console.error('Error saving testimony:', error.message);
+            } else {
+                console.log('Testimony saved successfully:', data);
+            }
+
+            // Memuat ulang daftar testimoni
+            loadTestimonies();
+        });
+
+        // Memuat daftar testimoni saat halaman dimuat
+        window.onload = () => {
+            loadTestimonies();
+        };
+
+        // Mengambil dan menampilkan daftar testimoni dari database Supabase
+        async function loadTestimonies() {
+            const { data, error } = await supabase
+                .from('testimonies')
+                .select('*');
+
+            if (error) {
+                console.error('Error fetching testimonies:', error.message);
+            } else {
+                const testimonyList = document.getElementById('testimonyList');
+                testimonyList.innerHTML = ''; // Mengosongkan daftar sebelum memuat yang baru
+
+                data.forEach(testimony => {
+                    const testimonialItem = document.createElement('div');
+                    testimonialItem.innerHTML = `
+							<div class="uby-testimony-area-list-content">
+								<p>${testimony.testimony}</p>
+							</div>
+							<div class="uby-testimony-area-list-sender">
+								<p>${testimony.name}</p>
+							</div>
+						`;;
+                    testimonyList.appendChild(testimonialItem);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

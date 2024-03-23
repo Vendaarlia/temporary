@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="csrf_token" content="pmFlm3Zvbm25on5YOgR1Mh2uq3tUjIvdvtqTSaRZ">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>clone exp</title>
+	<meta name="description" content="UBAYA - Selamat Idul Fitri 1 Syawal 1443 H" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+	<meta name="color-scheme" content="light dark">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/bootstrap-grid.min.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+	<link rel="stylesheet" href="css/animate.css">
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://ubaya.devivace.com/idulfitri2022/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="UBAYA - Selamat Idul Fitri 1 Syawal 1443 H">
+	<meta property="og:description" content="UBAYA - Selamat Idul Fitri 1 Syawal 1443 H">
+	<meta property="og:image" content="https://ubaya.devivace.com/images/meta-image.jpg">
+
+
+	<link href="css/jquery.bsPhotoGallery.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
+	<link rel="stylesheet/less" href="less/styles.less" />
+	<script src="js/less.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.1.11.2.js"></script>
+	<script src="js/jquery-migrate-1.2.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- <script src="js/jquery.ultimate-burger-menu.js"></script> -->
+	<script src="slick/slick.min.js"></script>
+
+	<script src="js/js-image-slider.js"></script>
+	<script src="js/jquery.bsPhotoGallery.js"></script>
+</head>
+
+<body>
+	<div class="soundonoff muted">
+		<a href="#">
+			<img src="images/sound-on.png" alt="">
+			<img src="images/sound-off.png" alt="">
+		</a>
+	</div>
+	<div class="uby">
+		<div class="uby-inv">
+			<canvas id="canvas"></canvas>
+			<div class="uby-inv-area">
+				<div class="uby-inv-area-circle">
+					<img src="images/uby-circle .svg" alt="">
+				</div>
+				<div class="uby-inv-area-header">
+					<div class="uby-inv-area-header-left ww-animation">
+						<img src="images/uby-logogram.svg" alt="">
+					</div>
+					<div class="uby-inv-area-header-right ww-animation">
+						<img src="images/uby-web. svg" alt="">
+					</div>
+				</div>
+				<div class="uby-inv-area-body ww-animation">
+					<img src="images/uby-greet.svg" alt="">
+				</div>
+				<div class="uby-inv-area-footer">
+					<div class="uby-inv-area-footer-left ww-animation">
+						<img src="images/uby-moon.png" alt="">
+					</div>
+					<div class="uby-inv-area-footer-right-wish ww-animation">
+						<img src="images/uby-wish.svg" alt="">
+					</div>
+					<div class="uby-inv-area-footer-right-rektor ww-animation">
+						<div class=""><img src="images/uby-rektor .png" alt=""></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="uby-wish">
+		<div class="uby-wish-area ww-animation">
+			<form action="#" id="testimonyForm">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" value="" required>
+				</div>
+				<div class="form-group">
+					<label for="testimony">Wishes</label>
+					<textarea name="message" id="testimony" rows="5" required></textarea>
+				</div>
+				<div class="alert alert-success ajax-response font-alt hidden" id="contactFormResponse"></div>
+				<div class="form-group">
+					<button id="submit" type="submit">SEND WISHES</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="uby-testimony">
+		<div id="testimonyList" class="uby-testimony"></div>
+	</div>
+	</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="modal-body-text">
+						<div class="modal-body-text-envelope">
+							<div class="wrapper" id="envelope">
+								<div class="guest" id="guest">
+								</div>
+								<div class="lid one"></div>
+								<div class="lid two"></div>
+								<div class="envelope"></div>
+								<div class="letter">
+									<!-- <p>Hello</p> -->
+								</div>
+							</div>
+						</div>
+						<div class="modal-body-text-invite noname">
+							<button type="button" id="playMusic" class="btn btn-default">Open</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<audio id="audio" loop>
+		<source src="music/idulfitri.mp3" type="audio/mpeg">
+	</audio>
+
+
+
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script src="js/lottie-player.js"></script>
+	<script src="js/lottie.min.js"></script>
+	<script src="js/ScrollMagic.min.js"></script>
+	<script src="js/gsap.min.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+	<script src="js/ScrollTrigger.min.js"></script>
+	<script src="js/scroll-lottie.js"></script>
+	<script src="js/animation.gsap.js"></script>
+	<script type="text/javascript" src="js/wow.min.js"></script>
+	<script type="text/javascript" src="js/smooth-scroll.js"></script>
+
+	<script type="text/javascript" src="js/sa-js.js?v=2"></script>
+
+	<!-- working form wishes -->
+	<script type="module">
+		import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+		const supabase = createClient('https://mwdysphscipeogzunbam.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im13ZHlzcGhzY2lwZW9nenVuYmFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjIwMjAsImV4cCI6MjAyNjczODAyMH0.pD-0FeALe5uMCTCLe3Ai6GLRtR3nqSQdVvOEOXGzfzA')
+
+		console.log('Supabase Instance: ', supabase)
+		// Menambahkan event listener untuk form submit
+		document.getElementById('testimonyForm').addEventListener('submit', async (event) => {
+			event.preventDefault();
+
+			const name = document.getElementById('name').value;
+			const testimony = document.getElementById('testimony').value;
+
+			// Menyimpan data ke dalam tabel 'testimonies'
+			const { data, error } = await supabase
+				.from('testimonies')
+				.insert([{ name, testimony }]);
+
+			if (error) {
+				console.error('Error saving testimony:', error.message);
+			} else {
+				console.log('Testimony saved successfully:', data);
+			}
+
+			// Kosongkan form
+			document.getElementById('name').value = '';
+			document.getElementById('testimony').value = '';
+
+			// Memuat ulang daftar testimoni
+			loadTestimonies();
+		});
+
+		// Memuat daftar testimoni saat halaman dimuat
+		window.onload = () => {
+			loadTestimonies();
+		};
+
+		// Mengambil dan menampilkan daftar testimoni dari database Supabase
+		async function loadTestimonies() {
+			const { data, error } = await supabase
+				.from('testimonies')
+				.select('*');
+
+			if (error) {
+				console.error('Error fetching testimonies:', error.message);
+			} else {
+				const testimonyList = document.getElementById('testimonyList');
+				testimonyList.innerHTML = ''; // Mengosongkan daftar sebelum memuat yang baru
+
+				data.forEach(testimony => {
+					const testimonialItem = document.createElement('div');
+					testimonialItem.innerHTML = `
+					<div class="uby-testimony-area-list ww-animation">
+							<div class="uby-testimony-area-list-content">
+								<p>
+									${testimony.testimony}
+								</p>
+							</div>
+							<div class="uby-testimony-area-list-sender">
+								<p>
+									${testimony.name}
+								</p>
+							</div>
+						</div>
+						`;;
+					testimonyList.appendChild(testimonialItem);
+				});
+			}
+		}
+	</script>
+
+
+	</script>
+
+	<!-- snow effect -->
+	<script>
+		// snow effect
+		window.onresize = function () {
+			var H = $('.uby-inv').height();
+			canvas.height = H;
+		}
+		window.onload = function () {
+			//canvas init
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+
+			//canvas dimensions
+
+			var W = window.innerWidth;
+			var H = $('.uby-inv').height();
+			canvas.width = W;
+			canvas.height = H;
+
+			//snowflake particles
+			var mp = 15; //max particles
+			var particles = [];
+			for (var i = 0; i < mp; i++) {
+				particles.push({
+					x: Math.random() * W, //x-coordinate
+					y: Math.random() * H, //y-coordinate
+					r: Math.random() * 4 + 2, //radius
+					d: Math.random() * mp //density
+				})
+			}
+
+			//Lets draw the flakes
+			function draw() {
+				ctx.clearRect(0, 0, W, H);
+
+				ctx.fillStyle = "rgba(228, 198, 97, 0.3)";
+				ctx.beginPath();
+				for (var i = 0; i < mp; i++) {
+					var p = particles[i];
+					ctx.moveTo(p.x, p.y);
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+				}
+				ctx.fill();
+				update();
+			}
+
+			//Function to move the snowflakes
+			//angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+			var angle = 0;
+			function update() {
+				angle += 0.01;
+				for (var i = 0; i < mp; i++) {
+					var p = particles[i];
+					//Updating X and Y coordinates
+					//We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+					//Every particle has its own density which can be used to make the downward movement different for each flake
+					//Lets make it more random by adding in the radius
+					p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
+					p.x += Math.sin(angle) * 2;
+
+					//Sending flakes back from the top when it exits
+					//Lets make it a bit more organic and let flakes enter from the left and right also.
+					if (p.x > W + 5 || p.x < -5 || p.y > H) {
+						if (i % 3 > 0) //66.67% of the flakes
+						{
+							particles[i] = { x: Math.random() * W, y: -10, r: p.r, d: p.d };
+						}
+						else {
+							//If the flake is exitting from the right
+							if (Math.sin(angle) > 0) {
+								//Enter from the left
+								particles[i] = { x: -5, y: Math.random() * H, r: p.r, d: p.d };
+							}
+							else {
+								//Enter from the right
+								particles[i] = { x: W + 5, y: Math.random() * H, r: p.r, d: p.d };
+							}
+						}
+					}
+				}
+			}
+
+			//animation loop
+			setInterval(draw, 33);
+		}
+	</script>
+
+	<!-- modal pop up -->
+	<script>
+		document.onreadystatechange = function () {
+			//modal pop-up
+			var envelope = document.getElementById('envelope');
+			var btn_open = document.getElementById('playMusic');
+
+			var modal = document.getElementById('myModal');
+
+			function open() {
+				if (envelope.classList.contains('open-inv')) {
+
+				} else {
+					envelope.classList.remove('close-inv');
+					envelope.classList.add('open-inv');
+					setTimeout(function () {
+						$('#myModal').modal('hide');
+						new WOW().init();
+					}, 2000);
+				}
+			}
+
+			envelope.onclick = function () {
+				open();
+
+			};
+
+			btn_open.onclick = function () {
+				open();
+
+			};
+		}
+	</script>
+
+	<!-- play/pause -->
+	<script>
+		$(document).ready(function () {
+			$('#playMusic').click(function () {
+				playAudio();
+
+			});
+			function playAudio() {
+				var audio = document.getElementById("audio");
+				audio.play();
+			}
+
+
+
+			$('.soundonoff').click(function (e) {
+				e.preventDefault();
+				togglePlay();
+				$(this).toggleClass("muted");
+
+			});
+
+		});
+		var audioElement = document.getElementById("audio");
+		function togglePlay() {
+			if (audioElement.paused) {
+				audioElement.play();
+			}
+			else {
+				audioElement.pause();
+			}
+		};
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		// Variables of the divs (where the YouTube iframe will load):
+		var player;
+
+		function onYouTubeIframeAPIReady() {
+
+			// Div player:
+			player = new YT.Player('player', {
+				height: '360',
+				width: '640',
+				videoId: '',
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+
+			// After loading the iframe, set the "playVideo" onclick event on "playButton" anchor element.
+			// document.getElementById('playButton').onclick = function() {
+			//   player.playVideo();
+			// };
+
+		}
+
+		// 5. The API calls this function when the player's state changes.
+		function onPlayerStateChange(event) {
+
+			// If the video is PLAYING, set the onclick element for pause the video.
+			// Once the "playButton" is clicked, the video will be paused.
+			if (event.data == YT.PlayerState.PLAYING) {
+				console.log("video play");
+				audioElement.pause();
+				$('.soundonoff').addClass("muted");
+			}
+
+			// If the video is PAUSED, set the onclick element for pause the video.
+			// Once the "playButton" is clicked, the video will resume the video = continue playing the video.
+			if (event.data == YT.PlayerState.PAUSED) {
+				console.log("video paused");
+				audioElement.play();
+				$('.soundonoff').removeClass("muted");
+			}
+
+			if (event.data === 0) {
+				console.log("video done");
+				audioElement.play();
+				$('.soundonoff').removeClass("muted");
+			}
+		}
+
+		// Div "player" - The API will call this function when the video player is ready.
+		function onPlayerReady(event) {
+			// event.target.playVideo();
+		}
+
+	</script>
+
+
+</body>
+
+</html>
